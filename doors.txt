@@ -1,0 +1,43 @@
+-- Roblox door script
+-- Put into the part you want the door to be
+ 
+local door = script.Parent
+ 
+function open()
+    door.CanCollide = false
+ 
+    for transparency = 0, 1, .1 do
+        door.Transparency = transparency
+        wait(.1)
+    end
+end
+ 
+function close()
+    for transparency = 1, 0, -.1 do
+        door.Transparency = transparency
+        wait(.1)
+    end
+ 
+    door.CanCollide = true
+end
+ 
+function get_player(part)
+    for _, player in ipairs(game.Players:GetPlayers()) do
+        if part:IsDescendantOf(player.Character) then
+            return player
+        end
+    end
+end
+ 
+door.Touched:connect(function(part)
+    local player = get_player(part)
+    if not player then return end
+ 
+    local allow = (
+        false
+    )
+    if allow then
+        open()
+        delay(4, close)
+    end
+end)
